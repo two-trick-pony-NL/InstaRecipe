@@ -26,7 +26,7 @@ def GetNewRecipe(): #function that will get a new recipe from the API and fetch 
 	querystring = {"q":RecipeName,"pageNumber":"1","pageSize":"1","autoCorrect":"true","safeSearch":"true"}
 	headers = {
 		'x-rapidapi-host': "contextualwebsearch-websearch-v1.p.rapidapi.com",
-		'x-rapidapi-key': "80c0bc5858msh5db4c423c3d8209p1596dajsnf75c8eb740c1"
+		'x-rapidapi-key': "APIKEY"
 		}
 	Image = requests.request("GET", url, headers=headers, params=querystring)
 	Image = Image.json()
