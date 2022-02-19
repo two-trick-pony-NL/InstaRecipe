@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+Instant Recipe {% endblock %}
+
+{%block content%}
+<h2>Favourite Recipes</h2>
+
+{% block numberserved %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">&#129361;Holy guacamole!</h4>
+  <p>InstaRecipe  served <strong>{{RecipeServed}}</strong> delicious recipes to food lovers just like you!</p>
+  <hr>
+  <p class="mb-0">Here are the recipes you have saved:</p>
+</div>
+{% endblock %}
+
+
+
+
+{% block table %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Recipe</th>
+        <th>Ingredientslist</th>
+        <th>Cooking Directions</th>
+        <th>Total Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in session["cart"] %}
+      
+      <tr>
+          <td>{{ user.recipe.name }}</td>
+          <td>
+            {% for Ingredient in user.recipe.ingredients%}
+            <p>{{ Ingredient}} </p>
+            {% endfor %}  
+          </td>     
+          <td>{{ user.recipe.directions }}</td>
+          <td>{{ user.recipe.total_duration }} Minutes</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+<button onclick="location.href = '/delete_favourites';" type="button"  class="btn btn-danger" .m-5 href="#">Delete all Favourites  </button>
+
+{% endblock %}
+
+{% block footer%}{% endblock %}

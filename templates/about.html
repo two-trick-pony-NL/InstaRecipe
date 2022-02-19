@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+Instant Recipe {% endblock %}
+
+{%block content%}
+<h2>About:</h2>
+<p>InstaRecipe is a simple hobby project by Peter van Doorn. By combining my love for coding and food, I set out to better understand the Flask and Bootstrap frameworks and integrate to an API. The recipe's come from the breakfastAPI see <a href="https://github.com/MariiaSizova/breakfastapi">Github.</a></p>
+
+<H2>Techstack</H2>
+<p>I use Flask in Python to call on the Breakfast API, which returns a recipe with the ingredients and it's cooking time. I use the Rapid API to return a picture based on the Recipe's name (Though I only get 100 free calls per day). Then I used bootstrap (for the first time &#127881;) to render a website. The preview for sharing on socials was done using OpenGraph </p>
+
+<H2>Source Code</H2>
+<p> Check out my Github repo here <br> Check out my writeup on this project on Medium </p>
+
+
+{% endblock %}
+
+{% block footer%}{% endblock %}
