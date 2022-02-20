@@ -8,10 +8,10 @@ If you're reading this you probably have much more experience developing softwar
 Lastly I'm writing this up as a memento to myself and other aspiring developers that if you really sit down and do the work, you can learn and achieve more than you ever expected. 
 
 
-# goals When I started out these were my goals: 
+# Goal for the project: 
 - Build a webapp with a backend -- I used flask for the very first time
 - Do some kind of session related logic -- In my case I ended up storing favourites in the session
-- Use an API -- Breakfast API was very convenient as it did not deal with authentication and returns very straight forward fields. 
+- Use an API and learn how to send data to the frontend -- Breakfast API was very convenient as it did not deal with authentication and returns very straight forward fields. 
 - Use a frontend framework -- In this case Bootstrap
 - Use AWS for hosting -- I developed using an EC2 instance and later I used Lightsail to host a docker image. 
 
