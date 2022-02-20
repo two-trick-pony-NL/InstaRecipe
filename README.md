@@ -3,6 +3,14 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 
 **Check out the demo:** https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/
 
+# Installation
+- You can easily download the project and add your RapidAPI key and run it locally 
+- However I also made a Docker Image
+
+```
+docker pull petervandoorn/insta-recipe
+```
+
 # Why such a fuss for such a simple app? 
 If you're reading this you probably have much more experience developing software than I do. To be frank: It took me more than a week to build this app, spending many late hours googling the most basic questions on stackoverflow. Anyway: I'm genuinly very proud as it's the first time I built something with so many moving parts. For now it will serve as a portfolio project as it's currently the pinacle of my softwaredevelopment skillset, using all kinds of technology I was unfamiliar with. 
 Lastly I'm writing this up as a memento to myself and other aspiring developers that if you really sit down and do the work, you can learn and achieve more than you ever expected. 
