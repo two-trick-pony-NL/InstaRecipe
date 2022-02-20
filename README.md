@@ -21,7 +21,8 @@ Lastly I'm writing this up as a memento to myself and other aspiring developers 
 - Do some kind of session related logic -- In my case I ended up storing favourites in the session
 - Use an API and learn how to send data to the frontend -- Breakfast API was very convenient as it did not deal with authentication and returns very straight forward fields. 
 - Use a frontend framework -- In this case Bootstrap
-- Use AWS for hosting -- I developed using an EC2 instance and later I used Lightsail to host a docker image. 
+- Wrap the whole app in a docker container for easy distribution
+- Use AWS for hosting -- I developed using an EC2 instance and later I used Lightsail to host the docker image. 
 
 # Known issues or things that I did not get to work yet:
 - Setting a javascript spinner in the button on getting a new Recipe
