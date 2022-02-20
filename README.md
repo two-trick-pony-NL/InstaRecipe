@@ -4,12 +4,11 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 **Check out the demo:** https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/
 
 # Why such a fuss for such a simple app? 
-If you're reading this you probably have more experience developing software than I do. To be frank: It took me more than a week to build this app, spending many late hours googling the most basic questions on stackoverflow. Anyway: I'm genuinly very proud as it's the first time I built something with so many moving parts. For now it will serve as a portfolio project as it's currently the pinacle of my softwaredevelopment skillset. But most of all it is a reminder to myself that I am capable of
+If you're reading this you probably have much more experience developing software than I do. To be frank: It took me more than a week to build this app, spending many late hours googling the most basic questions on stackoverflow. Anyway: I'm genuinly very proud as it's the first time I built something with so many moving parts. For now it will serve as a portfolio project as it's currently the pinacle of my softwaredevelopment skillset, using all kinds of technology I was unfamiliar with. 
 
+Lastly I'm writing this up as a memento to myself and other aspiring developers that if you really sit down and do the work, you can learn and achieve more than you ever expected. 
 
-it was the perfect project to better understand some new (to me) technologies. 
-
-These were my goals: 
+When I started out these were my goals: 
 - Build a webapp with a backend -- I used flask for the very first time
 - Do some kind of session related logic -- In my case I ended up storing favourites in the session
 - Use an API -- Breakfast API was very convenient as it did not deal with authentication and returns very straight forward fields. 
