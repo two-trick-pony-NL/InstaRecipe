@@ -3,12 +3,27 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 
 **Check out the demo:** http://instarecipe.ml or this [link](https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/)
 
-# Installation
-- You can easily download the project and add your RapidAPI key and run it locally 
-- However I also made a Docker Image
+<img width="1570" alt="Schermafbeelding 2022-02-21 om 20 31 28" src="https://user-images.githubusercontent.com/71013416/155029546-c854550c-bf58-4b64-b71e-35b91a3b5eee.png">
 
+# How it works
+- The premise is that you'll get a recipe, instantly. Only 1 at a time to make things simple in this rather complicated world
+- Upon startup InstaRecipe will store 1 recipe in memory this one will be served first to someone visiting the app
+- This user can then pick either 2 things: 1 to get a new Recipe or 2 to store the current recipe in his or her favourites
+- If you opt for a new recipe then a new recipe will be loaded
+- If you opt to store as a favourite, then you can hop over to your favourites tab and check out the recipes you have saved
+- That's about it :D 
+
+# Installation
+- You can easily download the project and run locally 
+- However I also made a Docker Image to make things even more simple to run, just pull the image and run the app. 
+
+To download the docker image:
 ```
 docker pull petervandoorn/insta-recipe
+```
+To run the container on port 80 (The flask app serves on port 5000)
+```
+docker container run -p 80:5000 [insta-recipe]
 ```
 
 # Why such a fuss for such a simple app? 
