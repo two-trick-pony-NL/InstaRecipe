@@ -94,12 +94,8 @@ def new():
 @app.route("/")  # Defining the landing page of our site
 def home():
 	CountRecipesServed(); #adding one to the Countrecipe counter
+	flash("Tap 'Get new Recipe', if you want to try something else! ", "info")
 	return render_template("index.html", header="Instant Recipe", RecipeName=getattr(Attributestore, "RecipeName"), Ingredients=getattr(Attributestore, "Ingredients"), Directions=getattr(Attributestore, "Directions"), RecipeID = getattr(Attributestore, "RecipeID"), CookingTime = getattr(Attributestore, "CookingTime"), ImageURL = getattr(Attributestore, "ImageURL"), RecipeServed=getattr(Attributestore, "RecipeServed"))
-		
-@app.route("/previous") # Creating a page that will store all the previous recipes we have seen in this session 
-def previous():
-	print("\n#############################################\n\n A user visited the previous page")	
-	return render_template("previous.html", RecipeServed=getattr(Attributestore, "RecipeServed"))    # some basic inline html
 
 @app.route("/about")  # Creating the About page 
 def about():
