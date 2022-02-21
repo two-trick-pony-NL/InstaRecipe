@@ -22,20 +22,19 @@ def GetNewRecipe(): #function that will get a new recipe from the API and fetch 
 	print("\n#############################################\n\n Recipe found: " + RecipeName)
 	#Fetching a picture based on the RecipeName // Commented out so I don't burn through my image search credit
 	
-	url = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI"
-	querystring = {"q":RecipeName,"pageNumber":"1","pageSize":"1","autoCorrect":"true","safeSearch":"true"}
+	url = "https://bing-image-search1.p.rapidapi.com/images/search"
+	querystring = {"q":RecipeName,"count":"1"}
 	headers = {
-		'x-rapidapi-host': "contextualwebsearch-websearch-v1.p.rapidapi.com",
+		'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
 		'x-rapidapi-key': "APIKEY"
 		}
 	Image = requests.request("GET", url, headers=headers, params=querystring)
 	Image = Image.json()
-	ImageURL = (Image["value"][0]["url"])
-	
+	ImageURL = (Image["value"][0]["contentUrl"])
+	setattr(Attributestore, 'ImageURL', ImageURL) #Enable this line to set Reset the Image URL again
 	#Adding the Variables to def AttributeStore
 	#This line sets a hardcoded imageURL to a picture of an avocado
 	#setattr(Attributestore, 'ImageURL', "https://learnenglishteens.britishcouncil.org/sites/teens/files/styles/article/public/rs7776_thinkstockphotos-856586464_1-low.jpg")
-	setattr(Attributestore, 'ImageURL', ImageURL) #Enable this line to set Reset the Image URL again
 	setattr(Attributestore, 'RecipeID', RecipeID)
 	setattr(Attributestore, 'CookingTime', CookingTime)
 	setattr(Attributestore, 'RecipeName', RecipeName)
