@@ -26,7 +26,7 @@ def GetNewRecipe(): #function that will get a new recipe from the API and fetch 
 	querystring = {"q":RecipeName,"count":"1"}
 	headers = {
 		'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-		'x-rapidapi-key': "APIKEY"
+		'x-rapidapi-key': "e0e1ef4554msh38d4251aa684263p1ebd8ejsn266642afbb21"
 		}
 	Image = requests.request("GET", url, headers=headers, params=querystring)
 	Image = Image.json()
@@ -94,7 +94,7 @@ def new():
 @app.route("/")  # Defining the landing page of our site
 def home():
 	CountRecipesServed(); #adding one to the Countrecipe counter
-	flash("Tap 'Get new Recipe', if you want to try something else! ", "info")
+	flash("If you don't like this recipe, tap: 'Get new Recipe', to try something else! ", "info")
 	return render_template("index.html", header="Instant Recipe", RecipeName=getattr(Attributestore, "RecipeName"), Ingredients=getattr(Attributestore, "Ingredients"), Directions=getattr(Attributestore, "Directions"), RecipeID = getattr(Attributestore, "RecipeID"), CookingTime = getattr(Attributestore, "CookingTime"), ImageURL = getattr(Attributestore, "ImageURL"), RecipeServed=getattr(Attributestore, "RecipeServed"))
 
 @app.route("/about")  # Creating the About page 
