@@ -68,17 +68,6 @@ def delete_favourites():
 	flash("Your favourites are deleted, get a new recipe if you're ready to try something new!", "danger")
 	return render_template("favourites.html", session=session, RecipeServed=getattr(Attributestore, "RecipeServed"))
 
-@app.route("/<int:id>")
-def get_by_id(id):
-	response = requests.get(url='https://breakfastapi.fun/'+id)
-	recipe = response.json()
-	RecipeID = (recipe['recipe']['id'])
-	CookingTime = (recipe['recipe']['total_duration'])
-	RecipeName = (recipe['recipe']['name'])
-	Directions = (recipe['recipe']['directions'])
-	Ingredients = (recipe['recipe']['ingredients'])
-	return(id )
-
 @app.route("/favourites") #This is the page that shows the recipes
 def favourites():
 	return render_template("favourites.html", session=session, RecipeServed=getattr(Attributestore, "RecipeServed"))    
