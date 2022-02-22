@@ -16,6 +16,13 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 
 # Installation
 - You can easily download the project and run locally 
+- Simply add a `keys_config.cfg` file to the folder
+- and add you rapidAPI keys use this template
+```
+[RapidAPI]
+api_key = PASTE YOUR API KEY HERE
+```
+
 - However I also made a Docker Image to make things even more simple to run, just pull the image and run the app. 
 
 To download the docker image:
