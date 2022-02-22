@@ -1,11 +1,16 @@
 # 🥘 🥣 InstaRecipe -- 12.000 recipes served instantly
 _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it gets it's recipes from the [breakfast API](https://github.com/MariiaSizova/breakfastapi) and based on the name of the recipe it fetches an image using RapidAPI ._ 
 
+<<<<<<< HEAD
 **Check out the demo:** http://instarecipe.nl or this [link to the container on Lightsail](https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/)
+=======
+**Check out the demo:** [instarecipe.ml](http://instarecipe.ml) or this [link directly to amazon](https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/)
+![Screenshot 2022-02-22 at 10 22 12](https://user-images.githubusercontent.com/71013416/155101849-cd8a9329-52ba-418a-9829-fb050f2e4761.png)
+>>>>>>> 306c4ef36d9a324a7428703de090824d131fb60c
 
-<img width="1570" alt="Schermafbeelding 2022-02-21 om 20 31 28" src="https://user-images.githubusercontent.com/71013416/155029546-c854550c-bf58-4b64-b71e-35b91a3b5eee.png">
 
-# How it works
+
+# How it works:
 - The premise is that you'll get a recipe, instantly. Only 1 at a time to make things simple in this rather complicated world
 - Upon startup InstaRecipe will store 1 recipe in memory this one will be served first to someone visiting the app
 - This user can then pick either 2 things: 1 to get a new Recipe or 2 to store the current recipe in his or her favourites
@@ -13,8 +18,15 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 - If you opt to store as a favourite, then you can hop over to your favourites tab and check out the recipes you have saved
 - That's about it :D 
 
-# Installation
+# Installation:
 - You can easily download the project and run locally 
+- Simply add a `keys_config.cfg` file to the folder
+- and add you rapidAPI keys use this template
+```
+[RapidAPI]
+api_key = PASTE YOUR API KEY HERE
+```
+
 - However I also made a Docker Image to make things even more simple to run, just pull the image and run the app. 
 
 To download the docker image:
@@ -31,7 +43,7 @@ If you're reading this you probably have much more experience developing softwar
 Lastly I'm writing this up as a memento to myself and other aspiring developers that if you really sit down and do the work, you can learn and achieve more than you ever expected. 
 
 
-# Goal for the project: 
+# Goal for the project
 - Build a webapp with a backend -- I used flask for the very first time
 - Do some kind of session related logic -- In my case I ended up storing favourites in the session
 - Use an API and learn how to send data to the frontend -- Breakfast API was very convenient as it did not deal with authentication and returns very straight forward fields. 
