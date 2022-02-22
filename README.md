@@ -1,7 +1,7 @@
 # 🥘 🥣 InstaRecipe -- 12.000 recipes served instantly
 _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it gets it's recipes from the [breakfast API](https://github.com/MariiaSizova/breakfastapi) and based on the name of the recipe it fetches an image using RapidAPI ._ 
 
-**Check out the demo:** http://instarecipe.ml or this [link](https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/)
+**Check out the demo:** http://instarecipe.nl or this [link to the container on Lightsail](https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/)
 
 <img width="1570" alt="Schermafbeelding 2022-02-21 om 20 31 28" src="https://user-images.githubusercontent.com/71013416/155029546-c854550c-bf58-4b64-b71e-35b91a3b5eee.png">
 
