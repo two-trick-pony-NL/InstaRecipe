@@ -145,12 +145,10 @@ window.setTimeout(function() {
     <div class="col">
       {% block ingredients %} {% endblock %} 
     </div>
-    <div class="col">
-      {% block methods %} {% endblock %} 
-      {% block footer %} {% endblock %}
-    </div>
+    
   </div>
-
+  {% block methods %} {% endblock %} 
+  {% block footer %} {% endblock %}
 
   {% block content %} {% endblock %}
   
