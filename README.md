@@ -6,7 +6,7 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 
 
 
-# How it works
+# How it works:
 - The premise is that you'll get a recipe, instantly. Only 1 at a time to make things simple in this rather complicated world
 - Upon startup InstaRecipe will store 1 recipe in memory this one will be served first to someone visiting the app
 - This user can then pick either 2 things: 1 to get a new Recipe or 2 to store the current recipe in his or her favourites
@@ -14,7 +14,7 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 - If you opt to store as a favourite, then you can hop over to your favourites tab and check out the recipes you have saved
 - That's about it :D 
 
-# Installation
+# Installation:
 - You can easily download the project and run locally 
 - Simply add a `keys_config.cfg` file to the folder
 - and add you rapidAPI keys use this template
