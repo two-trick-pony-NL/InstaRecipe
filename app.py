@@ -26,7 +26,7 @@ def GetNewRecipe(): #function that will get a new recipe from the API and fetch 
 	querystring = {"q":RecipeName,"count":"1"}
 	headers = {
 		'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-		'x-rapidapi-key': "apikey"
+		'x-rapidapi-key': "e0e1ef4554msh38d4251aa684263p1ebd8ejsn266642afbb21"
 		}
 	Image = requests.request("GET", url, headers=headers, params=querystring)
 	Image = Image.json()
