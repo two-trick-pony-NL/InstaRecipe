@@ -2,6 +2,11 @@ from flask import Flask, flash, render_template, redirect, session, json
 from flask_session import Session
 import json
 import requests
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read('keys_config.cfg')
+token = config.get('RapidAPI', 'api_key')
 
 app = Flask(__name__) #Defining our app
 app.config['SECRET_KEY'] = "SuperSecretKey"
@@ -26,7 +31,7 @@ def GetNewRecipe(): #function that will get a new recipe from the API and fetch 
 	querystring = {"q":RecipeName,"count":"1"}
 	headers = {
 		'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-		'x-rapidapi-key': "e0e1ef4554msh38d4251aa684263p1ebd8ejsn266642afbb21"
+		'x-rapidapi-key': token
 		}
 	Image = requests.request("GET", url, headers=headers, params=querystring)
 	Image = Image.json()
