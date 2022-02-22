@@ -47,7 +47,7 @@ def CountRecipesServed(): #Counting how many Recipes were served and updating th
 	AddedOne = GettingRecipeServed + 1
 	setattr(Attributestore, 'RecipeServed', AddedOne)
 
-@app.route("/add_to_favourites") #Adds the current recipe on display to the favourites list that is stored in session
+@app.route("/add_to_favourites") #Add the current recipe on display to the favourites list that is stored in session
 def add_to_cart():
 	CurrentRecipeName = getattr(Attributestore, "Recipe") #Adds the recipe ID of the current Recipe and adds it to the session of the user. After that the user is redirected to the favourites page
 	if 'cart' not in session: #If no items exist in the session we'll create a list called cart
