@@ -6,7 +6,7 @@
       <!-- HTML Meta Tags -->
       <title >Don't Know What To Eat Tonight? Try InstaRecipe</title>
       <meta name="description" content="InstaRecipe serves 12.000 recipe ideas instantly. Pick one you like and enjoy! ">
-
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- Facebook Meta Tags -->
       <meta property="og:url" content="https://instarecipe.nl">
       <meta property="og:type" content="website">
@@ -31,9 +31,30 @@
       </head>
 
      
+
+
+
+
+<!-- This SCRIPT  manages fading out of the alert after 2 secods-->  
+<script>
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 7000);
+</script>
+<!-- end of the script that runs alerts-->  
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand" href="/"><h1 onclick="location.href = '/';">&#129368 &#129379 InstaRecipe</h1><h3 onclick="location.href = '/';">12.000 recipes <i>served</i> instantly </h3></a>
+  <form class="form-inline">
+    <button onclick="location.href = '/new';" type="button"  class="btn btn-success m-1" href="/new">&#127828 Get new Recipe </button>
+    <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-outline-primary  m-1" href="/about">&#xe022; Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
+    <button onclick="location.href = '/favourites';"type="button" class="btn btn-outline-primary  m-1"href="/about">&#x2b50; Your Saved Recipes</button><button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> &#128227; Share</button>
+
+  </form>
+</nav>
 <body>
-
-
 <!-- Start of the code that runs alerts on the whole system. If there is an alert then it will be appended at the top of the <body> you can pass a category from the Python script to set color.-->  
   {% with messages = get_flashed_messages(with_categories=true) %}
   <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
@@ -46,41 +67,6 @@
     {% endfor %}
   {% endif %}
 {% endwith %}
-
-<!-- This section manages fading out of the alert after 2 secods-->  
-<script>
-window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
-    });
-}, 7000);
-</script>
-<!-- end of the code that runs alerts-->  
-
-
-
-  <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-            <h1 onclick="location.href = '/';">&#129368 &#129379 InstaRecipe</h1><h3 onclick="location.href = '/';">12.000 recipes <i>served</i> instantly </h3>
-
-      
-    </a>
-  </div>
-</nav>
-
-<!-- This is the section with the buttons for actions-->
-<div class="card">
-  <div class="card-body">
-  
-
-   <button onclick="location.href = '/new';" type="button"  class="btn btn-primary m-1" href="/new">&#127828 Get new Recipe </button>
-    
-    <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-outline-primary  m-1" href="/about">&#xe022;
-    Add to your Favourites  <span class="badge badge-pill badge-info">NEW</span></button>
-    
-    <button onclick="location.href = '/favourites';"type="button" class="btn btn-outline-primary  m-1"href="/about">&#x2b50; Your Favourite Recipes</button><button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> &#128227; Share</button>
-
 
   <!-- Start of share button-->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,33 +112,29 @@ window.setTimeout(function() {
     </div>
 </div>
 
-  </div>
-</div>
-
-<script>function myFunction() {
-
-  $(".message").text("link copied");
-  }</script>
-{% block CookingTime %} {% endblock %} 
-
-
+<!-- Body of recipe with Name, Picture, Method and ingredients-->
 <div class="container">
   <div class="row">
-    <div class="col">
-      {% block recipename %} {% endblock %}
+    <div class="col-sm-12 col-md-4">
+      {% block recipename %} {% endblock %}<hr>
       {% block foodimage %}{% endblock %}
     </div>
-    <div class="col">
-      {% block ingredients %} {% endblock %} 
+    <div class="col-sm">
+      {% block ingredients %} {% endblock %}
     </div>
-    
   </div>
-  {% block methods %} {% endblock %} 
-  {% block footer %} {% endblock %}
+  <div class="row">
+    <div class="col-sm-12">
+      <hr>
+      {% block CookingTime %} {% endblock %} 
 
-  {% block content %} {% endblock %}
-  
-  
+      {% block methods %} {% endblock %} 
+      <hr>
+      {% block footer %} {% endblock %}
+    </div>
+</div>
+
+
 <!-- jQuery and bootstrap packages -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -160,16 +142,22 @@ window.setTimeout(function() {
   <script scr="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-  
+  <!-- Start of the script for the share button-->
+<script>function myFunction() {
+
+  $(".message").text("link copied");
+  }</script>
+
+<!-- End of the script for the share button-->
  
   
-  <!-- Clarity tracker -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "an8ufa7gro");
+<!-- Clarity tracker -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "an8ufa7gro");
 </script>
 
 <!-- Matomo -->
@@ -200,7 +188,7 @@ window.setTimeout(function() {
           </a>
       
           <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="/favourites" class="nav-link px-2 text-muted">Previous Recipe</a></li>
+            <li class="nav-item"><a href="/favourites" class="nav-link px-2 text-muted">Favourite Recipes</a></li>
             <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About</a></li>
           </ul>
         </footer>
