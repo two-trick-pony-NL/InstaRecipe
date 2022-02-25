@@ -24,12 +24,12 @@ Instant Recipe {% endblock %}
     {% block methods %} 
        
     <h3 class="d-flex justify-content-left">&#128104;&#8205;&#127859;Directions</h3>
-    <span class="badge bg-secondary">{{CookingTime}} Minutes</span>
+    <span class="badge bg-info">{{CookingTime}} Minutes</span>
         <p>{{Directions}}</p>        
 {% endblock %}
 
 
-{% block footer%}This was recipe number: {{RecipeID}}{% endblock %}
+{% block footer%}This was recipe number: #{{RecipeID}}{% endblock %}
 
 
 

@@ -1,3 +1,4 @@
+from pickletools import read_int4
 from flask import Flask, flash, render_template, redirect, session, json
 from flask_session import Session
 import json
@@ -55,12 +56,14 @@ def CountRecipesServed(): #Counting how many Recipes were served and updating th
 @app.route("/add_to_favourites") #Add the current recipe on display to the favourites list that is stored in session
 def add_to_cart():
 	CurrentRecipeName = getattr(Attributestore, "Recipe") #Adds the recipe ID of the current Recipe and adds it to the session of the user. After that the user is redirected to the favourites page
+	CurrentImageURL = getattr(Attributestore, "ImageURL") #Adds the Image URL
 	if 'cart' not in session: #If no items exist in the session we'll create a list called cart
 		session['cart'] = []
 
 	if CurrentRecipeName in session['cart']: #If the current recipe already exists in the cart, then we flash a warning 
 		flash("You already added this recipe to your favourites, check them out!", "warning")
 	else:
+		CurrentRecipeName['recipe']["ImageUrl"] = CurrentImageURL
 		session['cart'].append(CurrentRecipeName) #Else we add the recipe to the list of favourites and flash a confirmation message
 		flash("Nice! This recipe was added to your favourites", "success")
 	print(session)

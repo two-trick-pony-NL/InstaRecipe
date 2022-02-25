@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css” integrity=”sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh” crossorigin=”anonymous”>
         <link rel=”stylesheet” href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
       </head>
 
@@ -48,7 +49,7 @@ window.setTimeout(function() {
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand" href="/"><h1 onclick="location.href = '/';">&#129368 &#129379 InstaRecipe</h1><h3 onclick="location.href = '/';">12.000 recipes <i>served</i> instantly </h3></a>
   <form class="form-inline">
-    <button onclick="location.href = '/new';" type="button"  class="btn btn-success m-1" href="/new">&#127828 Try new Recipe </button>
+    <button onclick="location.href = '/new';" type="button" class="btn-lg btn-success m-1" href="/new">&#127828 Try new Recipe </button>
     <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-outline-primary  m-1" href="/about">&#xe022; Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
     <button onclick="location.href = '/favourites';"type="button" class="btn btn-outline-primary  m-1"href="/about">&#x2b50; Your Saved Recipes</button><button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> &#128227; Share</button>
 
@@ -77,36 +78,32 @@ window.setTimeout(function() {
             </div>
             <div class="modal-body">
                 <div class="icon-container1 d-flex">
-                    <div class="smd"> <i class=" img-thumbnail fab fa-twitter fa-2x" style="color:#4c6ef5;background-color: aliceblue"></i>
+                    <div class="smd"> <i class=" img-thumbnail bi bi-twitter fa-2x" style="color:#4c6ef5;background-color: aliceblue"></i>
                         <p>Twitter</p>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-facebook fa-2x" style="color: #3b5998;background-color: #eceff5;"></i>
+                    <div class="smd"> <i class="img-thumbnail bi bi-facebook fa-2x" style="color: #3b5998;background-color: #eceff5;"></i>
                         <p>Facebook</p>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-reddit-alien fa-2x" style="color: #FF5700;background-color: #fdd9ce;"></i>
+                    <div class="smd"> <i class="img-thumbnail bi bi-reddit fa-2x" style="color: #FF5700;background-color: #fdd9ce;"></i>
                         <p>Reddit</p>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-discord fa-2x " style="color: #738ADB;background-color: #d8d8d8;"></i>
+                    <div class="smd"> <i class="img-thumbnail bi bi-discord fa-2x " style="color: #738ADB;background-color: #d8d8d8;"></i>
                         <p>Discord</p>
                     </div>
                 </div>
                 <div class="icon-container2 d-flex">
-                    <div class="smd"> <i class="img-thumbnail fab fa-whatsapp fa-2x" style="color: #25D366;background-color: #cef5dc;"></i>
+                    <div class="smd"> <i class="img-thumbnail bi bi-whatsapp fa-2x" style="color: #25D366;background-color: #cef5dc;"></i>
                         <p>Whatsapp</p>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-facebook-messenger fa-2x" style="color: #3b5998;background-color: #eceff5;"></i>
-                        <p>Messenger</p>
-                    </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-telegram fa-2x" style="color: #4c6ef5;background-color: aliceblue"></i>
+                  
+                    <div class="smd"> <i class="img-thumbnail bi bi-telegram fa-2x" style="color: #4c6ef5;background-color: aliceblue"></i>
                         <p>Telegram</p>
                     </div>
-                    <div class="smd"> <i class="img-thumbnail fab fa-weixin fa-2x" style="color: #7bb32e;background-color: #daf1bc;"></i>
-                        <p>WeChat</p>
-                    </div>
+                  
                 </div>
             </div>
             <div class="modal-footer"> <label style="font-weight: 600">Page Link <span class="message"></span></label><br />
-                <div class="row"> <input class="col-10 ur" type="url" placeholder="https://instarecipe.com" id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> </div>
+                <div class="row"> <input class="col-10 ur" type="url" placeholder="https://instarecipe.nl" id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;"> <button class="cpy" onclick="myFunction()"><i class="bi bi-clipboard-check"></i></button> </div>
             </div>
         </div>
     </div>
