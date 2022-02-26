@@ -4,10 +4,11 @@ Saved Recipes {% endblock %}
 
 {%block content%}
 <h2 class="m-4"><i class="bi bi-bookmarks"></i> Your saved Recipes</h2>
+<button onclick="location.href = '/delete_favourites';" type="button"  class="btn btn-danger ml-4"  href="#">Delete all saved recipes  </button>
 <hr>
 
 {% block numberserved %}
-<div class="alert alert-success" role="alert">
+<div class="alert alert-info" role="alert">
   <h4 class="alert-heading">&#129361;Holy guacamole!</h4>
   <p>InstaRecipe  served <strong>{{RecipeServed}}</strong> delicious recipes to food lovers just like you!</p>
   <hr>
@@ -28,8 +29,8 @@ Saved Recipes {% endblock %}
         <h5 class="card-title">&#127869 {{ StoredRecipe.recipe.name }}  <span class="badge bg-info text-white"><i class="bi bi-alarm"></i>  {{ StoredRecipe.recipe.total_duration }} Minutes</span></h5>
         <p class="card-text">{{StoredRecipe.recipe.directions }}</p>
         <p class="card-text"><small class="text-muted"> This is recipe number: #{{ StoredRecipe.recipe.id }}</small></p>
-        <button onclick="location.href = '/recipe/{{StoredRecipe.recipe.id}}';" type="button" class="btn btn-outline-primary m-1" href="/new"><i class="bi bi-newspaper"></i> View recipe for {{ StoredRecipe.recipe.name }} </button>
-          <button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal{{StoredRecipe.recipe.id}}"> <i class="bi bi-share"></i> Share {{ StoredRecipe.recipe.name }}</button>
+        <button onclick="location.href = '/recipe/{{StoredRecipe.recipe.id}}';" type="button" class="btn btn-light m-1" href="/new"><i class="bi bi-newspaper"></i> View recipe for {{ StoredRecipe.recipe.name }} </button>
+          <button type="button"  class="btn btn-light m-1"  href="#" data-toggle="modal" data-target="#exampleModal{{StoredRecipe.recipe.id}}"> <i class="bi bi-share"></i> Share {{ StoredRecipe.recipe.name }}</button>
       </div>
     </div>
   </div>
@@ -63,7 +64,7 @@ Saved Recipes {% endblock %}
 
 
 
-<button onclick="location.href = '/delete_favourites';" type="button"  class="btn btn-danger" .m-5 href="#">Delete all Favourites  </button>
+
 
 {% endblock %}
 

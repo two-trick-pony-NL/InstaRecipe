@@ -32,8 +32,7 @@
         {{ share.load() }}
 
       
-
-        </style>
+      
       </head>
 
      
@@ -53,13 +52,12 @@ window.setTimeout(function() {
 
 <nav class="navbar navbar-light bg-light justify-content-between  ">
   <a class="navbar-brand" href="/">
-    <img src="{{url_for('static', filename='Icon.png')}}"  width="40%" alt="">
-   </a>
+    <img src="{{url_for('static', filename='Icon.png')}}"  width="30%" alt=""></a>
   <form class="form-inline">
-    <button onclick="location.href = '/new';" type="button" class="btn btn-outline-primary m-1" href="/new"><i class="bi bi-newspaper"></i> New Recipe </button>
-    <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-outline-primary  m-1"><i class="bi bi-bookmark-star"></i> Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
-    <button onclick="location.href = '/favourites';"type="button" class="btn btn-outline-primary  m-1"href="/about"><i class="bi bi-bookmarks"></i>  Your Saved Recipes</button>
-    <button type="button"  class="btn btn-outline-primary m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> <i class="bi bi-share"></i> Share</button>
+    <button onclick="location.href = '/new';" type="button" class="btn btn-light m-1" href="/new"><i class="bi bi-shuffle"></i> New Recipe </button>
+    <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-light  m-1"><i class="bi bi-bookmark-star"></i> Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
+    <button onclick="location.href = '/favourites';"type="button" class="btn btn-light  m-1"href="/about"><i class="bi bi-bookmarks"></i>  Your Saved Recipes</button>
+    <button type="button"  class="btn btn-light m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> <i class="bi bi-share"></i> Share</button>
 
   </form>
 </nav>
