@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
         
       <!-- HTML Meta Tags -->
       <title >Don't Know What To Eat Tonight? Try InstaRecipe</title>
@@ -78,7 +79,7 @@ window.setTimeout(function() {
                 <h5 class="modal-title">Share</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
-              {{ share.create(title='Share:', sites='facebook, twitter, linkedin') }}
+              {{ share.create(title='Share:') }}
               Or copy this link:<iclass="bi bi-clipboard-check"></i> <a href="https://instarecipe.nl/recipe/{{RecipeID}}">https://instarecipe.nl/recipe/{{RecipeID}}</a>
             </div>
                   </div>
@@ -168,7 +169,7 @@ window.setTimeout(function() {
           <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="/favourites" class="nav-link px-2 text-muted">Favourite Recipes</a></li>
             <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About</a></li>
-            <li class="nav-item"class="nav-link px-2 text-muted"> {{ share.create(title='Share: ', sites='facebook, twitter, linkedin') }}</li>
+            <li class="nav-item"class="nav-link px-2 text-muted"> {{ share.create(title='Share: ') }}</li>
           </ul>
 
          
