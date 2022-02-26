@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
-        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='Icon.png')}}" width="30" height="30" alt="">
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='Favicon.png')}}" width="32" height="32" alt="">
         
       <!-- HTML Meta Tags -->
       <title >Don't Know What To Eat Tonight? Try InstaRecipe</title>
@@ -52,7 +52,7 @@ window.setTimeout(function() {
 
 <nav class="navbar navbar-light bg-light justify-content-between  ">
   <a class="navbar-brand" href="/">
-    <img src="{{url_for('static', filename='Icon.png')}}"  width="30%" alt=""></a>
+    <img src="{{url_for('static', filename='Icon.png')}}"  width="30%" alt=""></a> <h4 class="text-muted ml-4">12.000 recipes <i>served</i> instantly</h4>
   <form class="form-inline">
     <button onclick="location.href = '/new';" type="button" class="btn btn-light m-1" href="/new"><i class="bi bi-shuffle"></i> New Recipe </button>
     <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-light  m-1"><i class="bi bi-bookmark-star"></i> Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
