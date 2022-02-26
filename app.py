@@ -1,6 +1,6 @@
-from pickletools import read_int4
 from flask import Flask, flash, render_template, redirect, session, json
 from flask_session import Session
+from flask_share import Share
 import json
 import requests
 from configparser import ConfigParser
@@ -9,8 +9,11 @@ config = ConfigParser()
 config.read('keys_config.cfg')
 token = config.get('RapidAPI', 'api_key')
 
+
 app = Flask(__name__) #Defining our app
 app.config['SECRET_KEY'] = "SuperSecretKey"
+share = Share(app)
+
 
 def Attributestore(): #This function holds the attributes for: RecipeID, CookingTime,RecipeName,Directions, Ingredients and URL to an image of the Recipename
 	pass
@@ -76,6 +79,12 @@ def delete_favourites():
 	flash("Your favourites are deleted, get a new recipe if you're ready to try something new!", "danger")
 	return render_template("favourites.html", session=session, RecipeServed=getattr(Attributestore, "RecipeServed"))
 
+@app.route("/delete_one_favourite") #This dumps all the data in session
+def delete_one_favourite():
+	session.pop("cart")
+	flash("You deleted one of your favourites", "danger")
+	return render_template("favourites.html", session=session, RecipeServed=getattr(Attributestore, "RecipeServed"))
+
 @app.route("/favourites") #This is the page that shows the recipes
 def favourites():
 	return render_template("favourites.html", session=session, RecipeServed=getattr(Attributestore, "RecipeServed"))    
@@ -91,13 +100,55 @@ def new():
 @app.route("/")  # Defining the landing page of our site
 def home():
 	CountRecipesServed(); #adding one to the Countrecipe counter
-	flash("If you don't like this recipe, simply tap: 'Get new Recipe', to try something else! ", "info")
+	flash("If you don't like this recipe, simply tap: 'New Recipe', to try something else! ", "info")
 	return render_template("index.html", header="Instant Recipe", RecipeName=getattr(Attributestore, "RecipeName"), Ingredients=getattr(Attributestore, "Ingredients"), Directions=getattr(Attributestore, "Directions"), RecipeID = getattr(Attributestore, "RecipeID"), CookingTime = getattr(Attributestore, "CookingTime"), ImageURL = getattr(Attributestore, "ImageURL"), RecipeServed=getattr(Attributestore, "RecipeServed"))
 
 @app.route("/about")  # Creating the About page 
 def about():
 	print("\n#############################################\n\n A user visited the previous page")	
 	return render_template("about.html")    # some basic inline html
+
+@app.route('/recipe/<SpecificRecipe>')
+def GetSpecificRecipe(SpecificRecipe=0):
+	print(SpecificRecipe)
+	print(type(SpecificRecipe))
+	url = "https://breakfastapi.fun/"
+	UrlPlusRequestedRecipe = url + SpecificRecipe
+	print(UrlPlusRequestedRecipe)
+	response = requests.get(url=UrlPlusRequestedRecipe)
+	print(response)
+	recipe = response.json()
+	#Breaking out different parameters from the JSON response that we get from the breakfast API
+	
+	RecipeID = (recipe['recipe']['id'])
+	CookingTime = (recipe['recipe']['total_duration'])
+	RecipeName = (recipe['recipe']['name'])
+	Directions = (recipe['recipe']['directions'])
+	Ingredients = (recipe['recipe']['ingredients'])
+	print("\n#############################################\n\n Recipe found: " + RecipeName)
+	#Fetching a picture based on the RecipeName // Commented out so I don't burn through my image search credit
+	
+	url = "https://bing-image-search1.p.rapidapi.com/images/search"
+	querystring = {"q":RecipeName,"count":"1"}
+	headers = {
+		'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
+		'x-rapidapi-key': token
+		}
+	Image = requests.request("GET", url, headers=headers, params=querystring)
+	Image = Image.json()
+	ImageURL = (Image["value"][0]["contentUrl"])
+	setattr(Attributestore, 'ImageURL', ImageURL) #Enable this line to set Reset the Image URL again
+	#Adding the Variables to def AttributeStore
+	#This line sets a hardcoded imageURL to a picture of an avocado
+	#setattr(Attributestore, 'ImageURL', "https://learnenglishteens.britishcouncil.org/sites/teens/files/styles/article/public/rs7776_thinkstockphotos-856586464_1-low.jpg")
+	setattr(Attributestore, 'RecipeID', RecipeID)
+	setattr(Attributestore, 'CookingTime', CookingTime)
+	setattr(Attributestore, 'RecipeName', RecipeName)
+	setattr(Attributestore, 'Directions', Directions)
+	setattr(Attributestore, 'Ingredients', Ingredients)
+	setattr(Attributestore, 'Recipe', recipe)
+	
+	return render_template("index.html", header="Instant Recipe", RecipeName=getattr(Attributestore, "RecipeName"), Ingredients=getattr(Attributestore, "Ingredients"), Directions=getattr(Attributestore, "Directions"), RecipeID = getattr(Attributestore, "RecipeID"), CookingTime = getattr(Attributestore, "CookingTime"), ImageURL = getattr(Attributestore, "ImageURL"),RecipeServed=getattr(Attributestore, "RecipeServed"))
 
 if __name__ == "__main__": #Run the app
 	setattr(Attributestore, 'RecipeServed', 231)
