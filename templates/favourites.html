@@ -3,7 +3,7 @@
 Saved Recipes {% endblock %}
 
 {%block content%}
-<h2>Your saved Recipes</h2>
+<h2 class="m-4"><i class="bi bi-bookmarks"></i> Your saved Recipes</h2>
 <hr>
 
 {% block numberserved %}
@@ -16,37 +16,29 @@ Saved Recipes {% endblock %}
 {% endblock %}
 
 {% block table %}
-<div class="row row-cols-1 row-cols-md-6 g-4">
+<div class="row row-cols-3 row-cols-md-6 g-4">
 {% for StoredRecipe in session["cart"] %}
-  <div class="col-sm-5 m-2" padding=20px>
-    <div class="card h-100">
-      <div class="card-header">
-        <h5 class="card-title">&#127869 {{ StoredRecipe.recipe.name }}  <span class="badge bg-info text-white"><i class="bi bi-alarm"></i>  {{ StoredRecipe.recipe.total_duration }} Minutes</span></h5><hr>
-            </div>
-      <img src="{{ StoredRecipe.recipe.ImageUrl }}" style="max-width: 100%;" style="background-size: contains;" alt="Oops, The picture of this recipe failed to load">
+<div class="card mb-4 m-5" style="max-width: 100%"">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ StoredRecipe.recipe.ImageUrl }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
       <div class="card-body">
-        <h5>&#128104;&#8205;&#127859;Directions</h6> 
-          <button onclick="location.href = '/recipe/{{StoredRecipe.recipe.id}}';" type="button" class="btn btn-success m-1" href="/new"><i class="bi bi-newspaper"></i> Open recipe </button>
-          <button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal{{StoredRecipe.recipe.id}}"> <i class="bi bi-share"></i> Share</button>
-      <div class="col" width: 50%> 
-          <p class="card-text">{{ StoredRecipe.recipe.directions }}</p>
-        </div>
-        
-        <div class="col" width: 50%>
-        <ul class="list-group list-group-flush">
-          <h6> &#x1f6d2;Ingredients</h6><hr>
-          {% for Ingredient in StoredRecipe.recipe.ingredients%}
-          <li>{{ Ingredient}} </li>
-
-          {% endfor %}  
-        </ul>
+        <h5 class="card-title">&#127869 {{ StoredRecipe.recipe.name }}  <span class="badge bg-info text-white"><i class="bi bi-alarm"></i>  {{ StoredRecipe.recipe.total_duration }} Minutes</span></h5>
+        <p class="card-text">{{StoredRecipe.recipe.directions }}</p>
+        <p class="card-text"><small class="text-muted"> This is recipe number: #{{ StoredRecipe.recipe.id }}</small></p>
+        <button onclick="location.href = '/recipe/{{StoredRecipe.recipe.id}}';" type="button" class="btn btn-primary m-1" href="/new"><i class="bi bi-newspaper"></i> View recipe for {{ StoredRecipe.recipe.name }} </button>
+          <button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal{{StoredRecipe.recipe.id}}"> <i class="bi bi-share"></i> Share {{ StoredRecipe.recipe.name }}</button>
       </div>
-      </div>
-      <div class="card-footer, justify-content-between">
-                <small class="text-muted">Cooking time: {{ StoredRecipe.recipe.total_duration }} Minutes <br> This was recipe number #{{StoredRecipe.recipe.id}} </small>
-                </div>
     </div>
   </div>
+</div>
+
+
+  </div>
+
+
 
 
   <!-- Start of share button-->
@@ -54,11 +46,12 @@ Saved Recipes {% endblock %}
     <div class="modal-dialog" role="document">
         <div class="modal-content col-12">
             <div class="modal-header">
-                <h5 class="modal-title">Share</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                <h5 class="modal-title">Share {{ StoredRecipe.recipe.name }}:</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
               {{ share.create(title='Share:', sites='facebook, twitter,linkedin') }} 
-              Or copy this link:<iclass="bi bi-clipboard-check"></i> https://instarecipe.nl/recipe/{{StoredRecipe.recipe.id}}
+              Or copy this link:<iclass="bi bi-clipboard-check"></i> <a href="https://instarecipe.nl/recipe/{{StoredRecipe.recipe.id}}">https://instarecipe.nl/recipe/{{StoredRecipe.recipe.id}}</a>
+              
             </div>
                   </div>
     </div>
@@ -67,6 +60,7 @@ Saved Recipes {% endblock %}
 {%endfor%}
 </div>
 {% endblock%}
+
 
 
 

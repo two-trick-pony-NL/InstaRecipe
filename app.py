@@ -1,5 +1,4 @@
 from flask import Flask, flash, render_template, redirect, session, json
-from flask_session import Session
 from flask_share import Share
 import json
 import requests
@@ -56,6 +55,15 @@ def CountRecipesServed(): #Counting how many Recipes were served and updating th
 	AddedOne = GettingRecipeServed + 1
 	setattr(Attributestore, 'RecipeServed', AddedOne)
 
+def CountButtonNewRecipePressed(): #Counting how many times this user taps get new recipe
+	ButtonPressed = getattr(Attributestore, "ButtonPressed")
+	if ButtonPressed >= 5:
+		setattr(Attributestore, 'ButtonPressed', 0)
+	else:
+		AddedOne = ButtonPressed + 1
+		setattr(Attributestore, 'ButtonPressed', AddedOne)
+	
+
 @app.route("/add_to_favourites") #Add the current recipe on display to the favourites list that is stored in session
 def add_to_cart():
 	CurrentRecipeName = getattr(Attributestore, "Recipe") #Adds the recipe ID of the current Recipe and adds it to the session of the user. After that the user is redirected to the favourites page
@@ -93,8 +101,12 @@ def favourites():
 def new():
 	GetNewRecipe(); #Fetching the new recipe using the function
 	CountRecipesServed(); #adding one to the Countrecipe counter
-	print("Loading page...")
-	flash("Here is your brand new recipe, enjoy! ", "success")
+	CountButtonNewRecipePressed()
+	ButtonCount = getattr(Attributestore, "ButtonPressed")
+	if ButtonCount >= 5:
+		flash("Holy guacamole! You seem to really love InstaRecipe, Did you know you can save the recipes you, like by tapping: Save this Recipe",  "info")
+	else:
+		flash("Here is your brand new recipe, enjoy! ", "success")
 	return render_template("index.html", header="Instant Recipe", RecipeName=getattr(Attributestore, "RecipeName"), Ingredients=getattr(Attributestore, "Ingredients"), Directions=getattr(Attributestore, "Directions"), RecipeID = getattr(Attributestore, "RecipeID"), CookingTime = getattr(Attributestore, "CookingTime"), ImageURL = getattr(Attributestore, "ImageURL"),RecipeServed=getattr(Attributestore, "RecipeServed"))
 
 @app.route("/")  # Defining the landing page of our site
@@ -152,6 +164,7 @@ def GetSpecificRecipe(SpecificRecipe=0):
 
 if __name__ == "__main__": #Run the app
 	setattr(Attributestore, 'RecipeServed', 231)
+	setattr(Attributestore, 'ButtonPressed', 4)
 	GetNewRecipe(); #Calling the GetNewRecipe function, so we set a first Recipe on startup
 	app.run(host='0.0.0.0', debug=True)
 

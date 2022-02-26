@@ -8,19 +8,19 @@
       <meta name="description" content="InstaRecipe serves 12.000 recipe ideas instantly. Pick one you like and enjoy! ">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- Facebook Meta Tags -->
-      <meta property="og:url" content="https://instarecipe.nl">
+      <meta property="og:url" content="https://instarecipe.nl/recipe/{{RecipeID}}">
       <meta property="og:type" content="website">
       <meta property="og:title" content="Don't know what to eat tonight? Try InstaRecipe and find a recipe you'll like!">
       <meta property="og:description" content="InstaRecipe served you 12.000 recipe ideas instantly. Pick one you like and enjoy! ">
-      <meta property="og:image" content="https://static.urbandaddy.com/uploads/assets/image/slideshows/standard/beb04fe78446836d46434e7db6d0658a.jpg">
+      <meta property="og:image" content="{{ImageURL }}">
 
       <!-- Twitter Meta Tags -->
       <meta name="twitter:card" content="summary_large_image">
       <meta property="twitter:domain" content="">
-      <meta property="twitter:url" content="https://instarecipe.nl">
+      <meta property="twitter:url" content="https://instarecipe.nl/recipe/{{RecipeID}}">
       <meta name="twitter:title" content="Don't know what to eat tonight? Try InstaRecipe and find a recipe you'll like!">
       <meta name="twitter:description" content="InstaRecipe  serves you 12.000 recipe ideas instantly. Try InstaRecipe and find a recipe you'll like! ">
-      <meta name="twitter:image" content="https://static.urbandaddy.com/uploads/assets/image/slideshows/standard/beb04fe78446836d46434e7db6d0658a.jpg">
+      <meta name="twitter:image" content="{{ImageURL }}">
 
       <!-- Meta Tags Generated via https://www.opengraph.xyz -->
       
@@ -49,9 +49,10 @@ window.setTimeout(function() {
 <nav class="navbar navbar-light bg-light justify-content-between  ">
   <a class="navbar-brand" href="/"><h1 onclick="location.href = '/';">&#129368 &#129379 InstaRecipe</h1><h3 onclick="location.href = '/';">12.000 recipes <i>served</i> instantly </h3></a>
   <form class="form-inline">
-    <button onclick="location.href = '/new';" type="button" class="btn btn-outline-success m-1" href="/new"><i class="bi bi-newspaper"></i> New Recipe </button>
-    <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-outline-primary  m-1" href="/about"><i class="bi bi-bookmark-star"></i> Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
-    <button onclick="location.href = '/favourites';"type="button" class="btn btn-outline-primary  m-1"href="/about"><i class="bi bi-bookmarks"></i>  Your Saved Recipes</button><button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> <i class="bi bi-share"></i> Share</button>
+    <button onclick="location.href = '/new';" type="button" class="btn btn-primary m-1" href="/new"><i class="bi bi-newspaper"></i> New Recipe </button>
+    <button onclick="location.href = '/add_to_favourites';"type="button" class="btn btn-outline-primary  m-1"><i class="bi bi-bookmark-star"></i> Save this Recipe <span class="badge badge-pill badge-info">NEW</span></button>
+    <button onclick="location.href = '/favourites';"type="button" class="btn btn-outline-primary  m-1"href="/about"><i class="bi bi-bookmarks"></i>  Your Saved Recipes</button>
+    <button type="button"  class="btn btn-outline-primary m-1"  href="#" data-toggle="modal" data-target="#exampleModal"> <i class="bi bi-share"></i> Share</button>
 
   </form>
 </nav>
@@ -77,8 +78,8 @@ window.setTimeout(function() {
                 <h5 class="modal-title">Share</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
-              {{ share.create(title='Share: ', sites='facebook, twitter,linkedin') }} 
-              Or copy this link:<iclass="bi bi-clipboard-check"></i> https://instarecipe.nl/recipe/{{RecipeID}}
+              {{ share.create(title='Share:', sites='facebook, twitter, linkedin') }}
+              Or copy this link:<iclass="bi bi-clipboard-check"></i> <a href="https://instarecipe.nl/recipe/{{RecipeID}}">https://instarecipe.nl/recipe/{{RecipeID}}</a>
             </div>
                   </div>
     </div>
@@ -94,7 +95,7 @@ window.setTimeout(function() {
       {% block recipename %} {% endblock %}
       {% block foodimage %}{% endblock %}
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 m-2">
       {% block ingredients %} {% endblock %}
     </div>
   </div>
@@ -116,6 +117,8 @@ window.setTimeout(function() {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
   <script scr="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="dist/clipboard.min.js"></script>
+
 
   <!-- Start of the script for the share button-->
 <script>function myFunction() {
@@ -165,7 +168,7 @@ window.setTimeout(function() {
           <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="/favourites" class="nav-link px-2 text-muted">Favourite Recipes</a></li>
             <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About</a></li>
-            <li class="nav-item"class="nav-link px-2 text-muted"> {{ share.create(title='Share: ', sites='facebook, twitter,linkedin') }}</li>
+            <li class="nav-item"class="nav-link px-2 text-muted"> {{ share.create(title='Share: ', sites='facebook, twitter, linkedin') }}</li>
           </ul>
 
          
