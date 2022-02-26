@@ -28,7 +28,7 @@ Saved Recipes {% endblock %}
         <h5 class="card-title">&#127869 {{ StoredRecipe.recipe.name }}  <span class="badge bg-info text-white"><i class="bi bi-alarm"></i>  {{ StoredRecipe.recipe.total_duration }} Minutes</span></h5>
         <p class="card-text">{{StoredRecipe.recipe.directions }}</p>
         <p class="card-text"><small class="text-muted"> This is recipe number: #{{ StoredRecipe.recipe.id }}</small></p>
-        <button onclick="location.href = '/recipe/{{StoredRecipe.recipe.id}}';" type="button" class="btn btn-primary m-1" href="/new"><i class="bi bi-newspaper"></i> View recipe for {{ StoredRecipe.recipe.name }} </button>
+        <button onclick="location.href = '/recipe/{{StoredRecipe.recipe.id}}';" type="button" class="btn btn-outline-primary m-1" href="/new"><i class="bi bi-newspaper"></i> View recipe for {{ StoredRecipe.recipe.name }} </button>
           <button type="button"  class="btn btn-outline-secondary m-1"  href="#" data-toggle="modal" data-target="#exampleModal{{StoredRecipe.recipe.id}}"> <i class="bi bi-share"></i> Share {{ StoredRecipe.recipe.name }}</button>
       </div>
     </div>
