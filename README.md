@@ -3,8 +3,9 @@ _InstaRecipe is a Flask webapplication that serves 12.000 recipes instantly, it 
 
 **Check out the demo:** http://instarecipe.nl or this [link to the container on Lightsail](https://flask-service.vdotvo9a4e2a6.eu-central-1.cs.amazonlightsail.com/)
 
-![Screenshot 2022-02-22 at 10 22 12](https://user-images.githubusercontent.com/71013416/155101849-cd8a9329-52ba-418a-9829-fb050f2e4761.png)
 
+
+![Schermafbeelding 2022-03-26 om 13 18 04](https://user-images.githubusercontent.com/71013416/160239132-68b8e090-675d-4c79-83e8-a3fa760dd556.png)
 
 
 # How it works:
