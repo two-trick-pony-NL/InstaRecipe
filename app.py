@@ -1,6 +1,5 @@
 from flask import Flask, flash, render_template, redirect, session, json
 from flask_share import Share
-import json
 import requests
 from configparser import ConfigParser
 
