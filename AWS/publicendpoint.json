@@ -5,11 +5,7 @@
     "healthyThreshold": 2,
     "unhealthyThreshold": 2,
     "timeoutSeconds": 2,
-<<<<<<< HEAD
     "intervalSeconds": 6,
-=======
-    "intervalSeconds": 3,
->>>>>>> a4e5c7c56a7b86bad7d93fb71447542062a25d48
     "path": "/",
     "successCodes": "200-299"
 }
