@@ -1,0 +1,3 @@
+{"instarecipe": {
+  "image": ":instarecipe.instarecipe.latest",
+  "ports": {"80": "HTTP"}}}
