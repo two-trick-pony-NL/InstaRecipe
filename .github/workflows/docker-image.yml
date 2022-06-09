@@ -2,7 +2,7 @@ name: 🚀 Deployment
 on:
   push:
     branches:
-      - master
+      - main
 env:
   AWS_REGION: eu-central-1
   AWS_LIGHTSAIL_SERVICE_NAME: instarecipe
