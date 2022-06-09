@@ -1,0 +1,5 @@
+{
+    "serviceName": "instarecipe",
+    "containerName": "instarecipe",
+    "filterPattern": "-ELB-HealthChecker -static"
+}

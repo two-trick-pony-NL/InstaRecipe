@@ -52,3 +52,4 @@ Lastly I'm writing this up as a memento to myself and other aspiring developers 
 - Setting a javascript spinner in the button on getting a new Recipe
 - Storing the current recipe in the session -- these are now used system wide, causing some glitches if multiple users use the site at the same time
 - Damn DNS on Lightsail -- will try to figure that one out over the weekend. 
+- CI/CD Pipeline
