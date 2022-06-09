@@ -1,6 +1,6 @@
 {
   "containerName": "instarecipe",
-  "containerPort": 5000,
+  "containerPort": 80,
   "healthCheck": {
     "healthyThreshold": 2,
     "unhealthyThreshold": 2,
