@@ -4,6 +4,7 @@ import json
 import requests
 from configparser import ConfigParser
 
+
 config = ConfigParser()
 config.read('keys_config.cfg')
 token = config.get('RapidAPI', 'api_key')
@@ -16,6 +17,9 @@ share = Share(app)
 
 def Attributestore(): #This function holds the attributes for: RecipeID, CookingTime,RecipeName,Directions, Ingredients and URL to an image of the Recipename
 	pass
+
+ #Calling the GetNewReci
+
 
 def GetNewRecipe(): #function that will get a new recipe from the API and fetch an Image, then store all the variables in the Attributestore for later use
 	print("Function Running... \nFetching new recipe...  \nCalling the BreakFast API for a new Recipe and Searching for an image \n#############################################\n\n ")
@@ -161,6 +165,12 @@ def GetSpecificRecipe(SpecificRecipe=0):
 	setattr(Attributestore, 'Recipe', recipe)
 	
 	return render_template("index.html", header="Instant Recipe", RecipeName=getattr(Attributestore, "RecipeName"), Ingredients=getattr(Attributestore, "Ingredients"), Directions=getattr(Attributestore, "Directions"), RecipeID = getattr(Attributestore, "RecipeID"), CookingTime = getattr(Attributestore, "CookingTime"), ImageURL = getattr(Attributestore, "ImageURL"),RecipeServed=getattr(Attributestore, "RecipeServed"))
+
+#initializing
+setattr(Attributestore, 'RecipeServed', 231)
+setattr(Attributestore, 'ButtonPressed', 4)
+GetNewRecipe();
+
 
 if __name__ == "__main__": #Run the app
 	setattr(Attributestore, 'RecipeServed', 231)
